@@ -1,11 +1,14 @@
 import React, { Component } from "react";
 
 class Square extends Component {
+  state = {
+    image: "https://www.colorhexa.com/d3d3d3.png"
+  };
   render() {
     return (
       <div class="square">
         X:{this.props.x}, Y: {this.props.y}
-        <img src="https://www.colorhexa.com/d3d3d3.png" alt="Placeholder" />
+        <img src={this.state.image} alt="Placeholder" />
       </div>
     );
   }

@@ -5,7 +5,7 @@ class Header extends Component {
     return (
       <div class="logo-top">
         <h1 id="logo">
-          Tic <span>Fac</span> Toe{" "}
+          Tic <span>Fac</span> Toe
         </h1>
       </div>
     );
