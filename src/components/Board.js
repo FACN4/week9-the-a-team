@@ -16,10 +16,10 @@ class Board extends Component {
   render() {
     return (
       <div>
-        <div class="board">{this.buildGrid()}</div>
+        <div className="board">{this.buildGrid()}</div>
         <div>
           <h2>{this.state.winner} won!</h2>
-          <button class="button">Play Again</button>
+          <button className="button">Play Again</button>
         </div>
       </div>
     );
