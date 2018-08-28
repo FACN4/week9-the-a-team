@@ -4,6 +4,7 @@ import "./App.css";
 import Game from "./game";
 import Header from "./components/Header";
 import PageWrapper from "./components/PageWrapper.js";
+import Board from "./components/Board";
 
 class App extends Component {
   render() {
