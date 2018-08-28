@@ -6,9 +6,38 @@
 
 ### Wireframe
 
+Live preview: https://www.figma.com/file/VMhodyDAjR7Y5lQPIH1lzmHE/Untitled
+
 ![](https://i.imgur.com/7htJzpC.png)
 
-#### Figma Demo: https://www.figma.com/file/VMhodyDAjR7Y5lQPIH1lzmHE/Untitled
+### Component Hierarchy
+
+#### View 1: Choose Players
+
+- Wrapper
+  - Header
+  - Page Wrapper
+    - Description
+    - Vs Wrapper
+      - Select Player x 2
+
+#### View 2: Game
+
+- Wrapper
+  - Header
+  - Page Wrapper
+    - Turn
+    - Board
+      - Square (x9)
+
+#### View 3: End of Game
+
+- Wrapper
+  - Header
+  - Page Wrapper
+    - Winner Description
+
+#### Appendix 1: Figma Screens:
 
 Screen 1:
 ![](https://i.imgur.com/qzxwd7T.png)
