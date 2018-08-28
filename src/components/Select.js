@@ -2,7 +2,12 @@ import React, { Component } from "react";
 
 class Select extends Component {
   render() {
-    return <p>Test</p>;
+    return (
+      <div>
+      <p>Choose Your name</p>
+      <input type="text" name="Player" value="" /> <br />
+     </div>
+     );
   }
 }
 
