@@ -10,7 +10,7 @@ class Select extends Component {
   render() {
     return (
       <div>
-        <p>Choose Your name</p>
+        <h3>{this.props.id}</h3>
         <select value={this.state.value} onChange={this.handleChange}>
           <option value="matt">Matt</option>
           <option value="t">T</option>
