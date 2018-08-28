@@ -17,16 +17,16 @@ Live preview: https://www.figma.com/file/VMhodyDAjR7Y5lQPIH1lzmHE/Untitled
 - Wrapper
   - Header
   - Page Wrapper
-    - Description
-    - Vs Wrapper
-      - Select Player x 2
+    - Box
+    - Board
+      - Select x2 
 
 #### View 2: Game
 
 - Wrapper
   - Header
   - Page Wrapper
-    - Turn
+    - Box
     - Board
       - Square (x9)
 
@@ -35,7 +35,7 @@ Live preview: https://www.figma.com/file/VMhodyDAjR7Y5lQPIH1lzmHE/Untitled
 - Wrapper
   - Header
   - Page Wrapper
-    - Winner Description
+    - Board
 
 #### Appendix 1: Figma Screens:
 
