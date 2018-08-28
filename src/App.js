@@ -4,6 +4,7 @@ import './App.css';
 import Game from './game';
 
 class App extends Component {  //react class
+  
   render() {  // className use App.css classes
     return (
       <div className="App">
