@@ -1,20 +1,12 @@
 import React, { Component } from "react";
 
 class Square extends Component {
-  constructor(props) {
-    super(props);
-    console.log(this.props);
-  }
-  // state: {
-  //   x: 0,
-  //   y: 0,
-  //   player: 0
-  // };
   render() {
     return (
-      <span>
-        `{this.props.x} {this.props.y}`
-      </span>
+      <div class="square">
+        X:{this.props.x}, Y: {this.props.y}
+        <img src="https://www.colorhexa.com/d3d3d3.png" alt="Placeholder" />
+      </div>
     );
   }
 }

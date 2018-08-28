@@ -4,9 +4,10 @@ class Header extends Component {
   render() {
     return (
       <div class="logo-top">
-     <h1 id="logo">Tic <span>Fac</span> Toe </h1>
-     </div>
-
+        <h1 id="logo">
+          Tic <span>Fac</span> Toe{" "}
+        </h1>
+      </div>
     );
   }
 }
