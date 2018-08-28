@@ -12,6 +12,7 @@
   /* style the square */
   /* display: inline-block; */
   width: 150px;
+  justify-self: center;
   height: 150px;
 }
 
