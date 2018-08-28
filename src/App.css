@@ -49,7 +49,29 @@ h2 {
 padding: 50px 0px 30px 0px;
 }
 
+/* css for the game */
+.board {
+ position: relative;
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+}
 
+.square {
+  /* style the square */
+display: inline-block;
+width: 100px;
+height: 100px;
+}
+.square1, .square  {
+
+}
+
+.square2,.square {
+  /* when clicked by the second player */
+}
+
+/* end for the game*/
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
