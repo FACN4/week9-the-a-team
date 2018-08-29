@@ -8,8 +8,6 @@
 }
 
 .square {
-  /* style the square */
-  /* display: inline-block; */
   width: 130px;
   justify-self: center;
   height: auto;
