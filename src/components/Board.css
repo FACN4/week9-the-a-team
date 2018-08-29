@@ -21,19 +21,3 @@
   width: 100px;
   height: 100px;
 }
-
-/* Button CSS */
-.button {
-  -webkit-transition-duration: 0.4s; /* Safari */
-  transition-duration: 0.4s;
-  padding: 12px 28px;
-  font-size: 1.2em;
-  background-color: white;
-  color: black;
-  border: 2px solid #4caf50; /* Green */
-}
-
-.button:hover {
-  background-color: #4caf50; /* Green */
-  color: white;
-}
