@@ -1,9 +1,13 @@
 import React, { Component } from "react";
 import "./Board.css";
 import Square from "./Square";
+
 const one = 1;
 const two = 2;
 const three = 3;
+
+import Button from "./Button";
+
 
 class Board extends Component {
   constructor() {
@@ -144,7 +148,7 @@ class Board extends Component {
         <div className="board">{this.buildGrid()}</div>
         <div>
           <h2>{this.state.winner} won!</h2>
-          <button className="button">Play Again</button>
+          <Button>Play Again</Button>
         </div>
       </div>
     );

@@ -1,8 +1,10 @@
+
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Header from './components/Header';
 import PageWrapper from './components/PageWrapper.js';
+
 
 
 class App extends Component {
@@ -30,7 +32,7 @@ class App extends Component {
   }
 
   // Handle a player's move, and switch to the next player.
-  playerMove(event,x,y) {
+  playerMove(event, x, y) {
     // const [ x, y ] = event.target.dataset.cell.split('_');
     // const cellEmpty = this.board.getCell(x, y) === 0;
     this.move(x, y, this.state.player, () => {

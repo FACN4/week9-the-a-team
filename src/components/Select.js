@@ -2,14 +2,17 @@ import React, { Component } from "react";
 import photos from "../player_photos.json";
 
 class Select extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { value: "Matt" };
+    this.handleChange = this.handleChange.bind(this);
+  }
   buildSelect = () => {
     return photos.map(y => <option value={y.name}>{y.name}</option>);
   };
-  state = {
-    value: "Matt"
-  };
   handleChange(event) {
     this.setState({ value: event.target.value });
+    this.props.action(event.target.value);
   }
   render() {
     return (
