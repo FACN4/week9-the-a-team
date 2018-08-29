@@ -1,16 +1,15 @@
-import React, { Component } from "react";
-import "./App.css";
-import Header from "./components/Header";
-import PageWrapper from "./components/PageWrapper.js";
-import Game from "./game";
+
+import React, { Component } from 'react';
+import logo from './logo.svg';
+import './App.css';
+import Header from './components/Header';
+import PageWrapper from './components/PageWrapper.js';
+
+
 
 class App extends Component {
   //react class
-  constructor() {
-    super();
-    this.board = new Game();
-    this.state = { player: 1, counter: 0, winner: false, freezeBoard: false };
-  }
+
   // get next player turn
   nextPlayer() {
     return this.state.player === 1 ? 2 : 1;

@@ -6,7 +6,7 @@ class Square extends Component {
   };
   render() {
     return (
-      <div className="square">
+      <div className="square" id= {this.props.id}>
         X:{this.props.x}, Y: {this.props.y}
         <img src={this.state.image} alt="Placeholder" />
       </div>
