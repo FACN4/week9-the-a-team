@@ -24,8 +24,8 @@ class PageWrapper extends Component {
     this.setState(
       {
         player2: value
-      }
-      // () => console.log("Player 2:", this.state.player2)
+      },
+      () => console.log("Player 2:", this.state.player2)
     );
   }
   componentDidMount() {}
