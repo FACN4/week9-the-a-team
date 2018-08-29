@@ -15,7 +15,7 @@ class PageWrapper extends Component {
       player1: "Matt",
       player2: "Matt",
       instruction:
-        "Welcome to Tic Fac Toe. FAC's #1 Noughts and Crosses app. Tell us who is playing to begin."
+        "Welcome to Tic Fac Toe. FAC's #1 Noughts and Crosses web app. Tell us who is playing to begin."
     };
   }
   player1handler(value) {
