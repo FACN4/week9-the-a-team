@@ -5,6 +5,7 @@ import Box from "./Box.js";
 import Button from "./Button";
 import "./PageWrapper.css";
 
+
 class PageWrapper extends Component {
   constructor(props) {
     super(props);
@@ -50,7 +51,7 @@ class PageWrapper extends Component {
       );
     } else {
       return (
-        <Board player1={this.state.player1} player2={this.state.player2} />
+        <Board player1={this.state.player1} player2={this.state.player2}  />
       );
     }
   }
