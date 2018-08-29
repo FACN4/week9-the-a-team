@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import './Board.css';
-import Square from './Square';
+import React, { Component } from "react";
+import "./Board.css";
+import Square from "./Square";
 import Box from "./Box.js";
 
 //import Button from "./Button";
@@ -21,7 +21,12 @@ class Board extends Component {
     ]; /// 999 is the border
     /// 111 for X
     /// 222 for O
-    this.state = { player: this.props.player1, counter: 0, winner: 0, freezeBoard: false };
+    this.state = {
+      player: this.props.player1,
+      counter: 0,
+      winner: 0,
+      freezeBoard: false
+    };
   }
 
   squareHandler = (xCords, yCords) => {
@@ -32,10 +37,8 @@ class Board extends Component {
     this.playerMove(xCords, yCords);
   };
   buildGrid = () => {
-
     return [1, 2, 3].map(y =>
       [1, 2, 3].map(x => {
-
         //store in board logic
         let hi = `${x}${y}`;
         return (
@@ -66,7 +69,7 @@ class Board extends Component {
     return this.state.player === this.props.player1
       ? this.props.player2
       : this.props.player1;
-  //  return  this.state.player === 1 ? 2 : 1 ;
+    //  return  this.state.player === 1 ? 2 : 1 ;
   }
 
   // Place a move on the board and check for a winner.
@@ -77,7 +80,6 @@ class Board extends Component {
     // if we have a winner then board becomes unclickable
 
     if (winner === this.props.player1 || winner === this.props.player2) {
-
       this.setState({ winner: winner, freezeBoard: true });
     } else if (winner === 3) {
       // if this is a tie board becomes unclickable with no winner
@@ -91,14 +93,16 @@ class Board extends Component {
   playerMove(x, y) {
     // const [ x, y ] = event.target.dataset.cell.split('_');
     // const cellEmpty = this.board.getCell(x, y) === 0;
-    if(this.board[x][y]===0){
+    if (this.board[x][y] === 0) {
       console.log("here");
-    this.move(x, y, this.state.player, () => {
-      this.setState({ player: this.nextPlayer(),counter:this.state.counter+1 });
-    });
+      this.move(x, y, this.state.player, () => {
+        this.setState({
+          player: this.nextPlayer(),
+          counter: this.state.counter + 1
+        });
+      });
+    }
   }
-  }
-
   handleResetClick = () => {
     this.board = [
       [9, 9, 9, 9, 9],
@@ -107,8 +111,12 @@ class Board extends Component {
       [9, 0, 0, 0, 9],
       [9, 9, 9, 9, 9]
     ];
-    this.setState({ player: this.props.player1, counter: 0, winner: 0, freezeBoard: false });
-
+    this.setState({
+      player: this.props.player1,
+      counter: 0,
+      winner: 0,
+      freezeBoard: false
+    });
   };
 
   changeValue(x, y, who) {
@@ -118,12 +126,10 @@ class Board extends Component {
   }
 
   checkFull(counter) {
-    if (counter > 8) return 'full';
-    return 'notFull';
+    if (counter > 8) return "full";
+    return "notFull";
   }
   ///////// Check functions ///////////////
-
-
 
   checkVertical(x, y) {
     //x is fixed checking only y of that column
@@ -207,17 +213,11 @@ class Board extends Component {
     return 0;
   }
   render() {
-    console.log('we are at top of the Board render');
+    console.log("we are at top of the Board render");
     return (
-      <div>
+      <div onclick={this.handleClick}>
         <Box>{this.state.player}s Turn</Box>
         <div className="board">{this.buildGrid()}</div>
-        <div>
-          <h2>{this.state.winner} won!</h2>
-          <button className="button" onClick={this.handleResetClick}>
-            Play Again !
-          </button>
-        </div>
       </div>
     );
   }

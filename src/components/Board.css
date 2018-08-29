@@ -11,16 +11,16 @@
 .square {
   /* style the square */
   /* display: inline-block; */
-  width: 150px;
+  width: 200px;
   justify-self: center;
-  height: 150px;
+  height: 200px;
 }
 
 .square img {
   border-radius: 50%;
-  width: 100px;
-  height: 100px;
-    animation: App-logo-spin infinite 1s linear;
+  width: 150px;
+  height: 150px;
+  animation: App-logo-spin infinite 1s linear;
 }
 
 @keyframes App-logo-spin {
