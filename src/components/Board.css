@@ -1,0 +1,39 @@
+/* css for the game */
+.board {
+  width: 50%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px;
+  grid-auto-rows: minmax(100px, auto);
+}
+
+.square {
+  /* style the square */
+  /* display: inline-block; */
+  width: 150px;
+  justify-self: center;
+  height: 150px;
+}
+
+.square img {
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+}
+
+/* Button CSS */
+.button {
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  padding: 12px 28px;
+  font-size: 1.2em;
+  background-color: white;
+  color: black;
+  border: 2px solid #4caf50; /* Green */
+}
+
+.button:hover {
+  background-color: #4caf50; /* Green */
+  color: white;
+}
