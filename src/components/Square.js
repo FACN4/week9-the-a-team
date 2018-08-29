@@ -7,21 +7,17 @@ class Square extends Component {
     this.onClick = this.onClick.bind(this);
   }
   state = {
-    numOfClicks: 0,
-
     image: "https://www.colorhexa.com/d3d3d3.png"
   };
   onClick() {
-  if (this.state.numOfClicks === 0)
-      this.setState({ image: photos[this.props.player]["photo"] , numOfClicks:244});
+    this.setState({
+      image: photos[this.props.player]["photo"]
+    });
   }
   render() {
-
-    const img = this.props.state === 0 ? "https://www.colorhexa.com/d3d3d3.png" : this.state.image;
     return (
       <div className="square" id={this.props.id} onClick={this.onClick}>
-        X:{this.props.x}, Y: {this.props.y}
-        <img src={img} alt="Placeholder" />
+        <img src={this.state.image} alt={this.props.player} />
       </div>
     );
   }

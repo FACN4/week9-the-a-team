@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import Board from "./Board";
 import Select from "./Select";
 import Box from "./Box.js";
-import Button from "./Button";
 import "./PageWrapper.css";
 
 
@@ -15,7 +14,9 @@ class PageWrapper extends Component {
     this.state = {
       view: 1,
       player1: "Matt",
-      player2: "Matt"
+      player2: "Matt",
+      instruction:
+        "Welcome to Tic Fac Toe. FAC's #1 Noughts and Crosses web app. Tell us who is playing to begin."
     };
   }
   player1handler(value) {
@@ -30,26 +31,28 @@ class PageWrapper extends Component {
   }
   handleSubmit() {}
   nextView() {
-    this.setState({ view: 2 });
+    if (this.state.player1 === this.state.player2) {
+      this.setState({ instruction: "Please choose 2 different players" });
+    } else {
+      this.setState({ view: 2 });
+    }
   }
   render() {
-    console.log("this is the state view: "+this.state.view);
-
     if (this.state.view === 1) {
       return (
         <div>
-          <Box>Choose your name!!</Box>
+          <Box>{this.state.instruction}</Box>
           <section id="player_select">
-            <Select action={this.player1handler} id="Player 1"  />
-            Vs.
-            <Select action={this.player2handler} id="Player 2"  />
+            <Select action={this.player1handler} id="Player 1" />
+            <div className="vs">Vs.</div>
+            <Select action={this.player2handler} id="Player 2" />
           </section>
           <button className="button" onClick={this.nextView}>
             Submit
           </button>
         </div>
       );
-    } else {
+    } else if (this.state.view === 2) {
       return (
         <Board player1={this.state.player1} player2={this.state.player2}  />
       );
