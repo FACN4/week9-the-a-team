@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import photos from '../player_photos.json'
 
 class Square extends Component {
   constructor(props) {
@@ -10,8 +11,11 @@ class Square extends Component {
   };
   onClick() {
 
+    console.log('this is inside square onClick');
+    console.log(this.props.player);
+    console.log(photos[this.props.player]['photo']);
+    this.setState({image:photos[this.props.player]['photo']})
 
-    //this.setState(image:{this.props.photo})
   }
   render() {
     return (

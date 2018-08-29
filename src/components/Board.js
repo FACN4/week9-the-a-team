@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './Board.css';
 import Square from './Square';
+
 //import Button from "./Button";
 
 const one = 1;
@@ -9,7 +10,7 @@ const three = 3;
 
 class Board extends Component {
   constructor(props) {
-    super();
+    super(props);
     this.board = [
       [9, 9, 9, 9, 9],
       [9, 0, 0, 0, 9],
@@ -19,23 +20,26 @@ class Board extends Component {
     ]; /// 999 is the border
     /// 111 for X
     /// 222 for O
-    this.state = { player: 1, counter: 0, winner: 0, freezeBoard: false };
-
+    this.state = { player: this.props.player1, counter: 1, winner: 0, freezeBoard: false };
   }
+
   squareHandler = (xCords, yCords) => {
     //TODO regarding the logic board but not updating the square
     //assign the board
-
+    console.log(this.state.counter);
+    console.log(this.board);
     this.playerMove(xCords, yCords);
   };
   buildGrid = () => {
 
+
     return [1, 2, 3].map(y =>
       [1, 2, 3].map(x => {
+
         //store in board logic
         let hi = `${x}${y}`;
         return (
-          <div onClick={()=>this.squareHandler( x , y)}>
+          <div onClick={() => this.squareHandler(x, y)}>
             <Square
               x={x}
               y={y}
@@ -59,8 +63,10 @@ class Board extends Component {
 
   // get next player turn
   nextPlayer() {
-    return  this.state.player === this.props.player1 ? this.props.player2 : this.props.player1;
-    // this.setState({ player: this.state.player === 1 ? 2 : 1 });
+    return this.state.player === this.props.player1
+      ? this.props.player2
+      : this.props.player1;
+  //  return  this.state.player === 1 ? 2 : 1 ;
   }
 
   // Place a move on the board and check for a winner.
@@ -69,7 +75,9 @@ class Board extends Component {
     let newCounter = this.state.counter + 1;
     const winner = this.checkWinner(x, y, newCounter);
     // if we have a winner then board becomes unclickable
+
     if (winner === this.props.player1 || winner === this.props.player2) {
+
       this.setState({ winner: true, freezeBoard: true });
     } else if (winner === 3) {
       // if this is a tie board becomes unclickable with no winner
@@ -86,7 +94,7 @@ class Board extends Component {
     if(this.board[x][y]===0){
       console.log("here");
     this.move(x, y, this.state.player, () => {
-      this.setState({ player: this.nextPlayer() });
+      this.setState({ player: this.nextPlayer(),counter:this.state.counter+1 });
     });
   }
   }
@@ -99,7 +107,7 @@ class Board extends Component {
       [9, 0, 0, 0, 9],
       [9, 9, 9, 9, 9]
     ];
-    this.setState({ player: 1, counter: 0, winner: 0, freezeBoard: false });
+    this.setState({ player: this.props.player1, counter: 0, winner: 0, freezeBoard: false });
   };
 
   changeValue(x, y, who) {
@@ -114,12 +122,7 @@ class Board extends Component {
   }
   ///////// Check functions ///////////////
 
-  // shouldCheck(counter){
-  //   if (counter>4) {
-  //     return true ;
-  //   }                   /// later
-  //   return false ;
-  // }
+
 
   checkVertical(x, y) {
     //x is fixed checking only y of that column
@@ -176,19 +179,19 @@ class Board extends Component {
 
     let gameWinner = 0; //no winner as default if this value changes in any of the checks then we have a winner
     gameWinner = this.checkVertical(xCords, yCords);
-    if (gameWinner > 0) {
+    if (gameWinner !== 0) {
       return gameWinner;
     }
     gameWinner = this.checkHorizontal(xCords, yCords);
-    if (gameWinner > 0) {
+    if (gameWinner !== 0) {
       return gameWinner;
     }
     gameWinner = this.checkDiagnolLeft(xCords, yCords);
-    if (gameWinner > 0) {
+    if (gameWinner !== 0) {
       return gameWinner;
     }
     gameWinner = this.checkDiagonalRight(xCords, yCords);
-    if (gameWinner > 0) {
+    if (gameWinner !== 0) {
       return gameWinner;
     }
     //if all check are done we need to check if the board is full then we have a tie so we return 3
