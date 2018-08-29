@@ -1,7 +1,8 @@
-import React, { Component } from "react";
-import "./Board.css";
-import Square from "./Square";
+import React, { Component } from 'react';
+import './Board.css';
+import Square from './Square';
 import Box from "./Box.js";
+
 
 const one = 1;
 const two = 2;
@@ -31,6 +32,7 @@ class Board extends Component {
   buildGrid = () => {
     return [1, 2, 3].map(y =>
       [1, 2, 3].map(x => {
+
         //store in board logic
         let hi = `${x}${y}`;
         return (

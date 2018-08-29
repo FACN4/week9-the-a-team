@@ -4,6 +4,7 @@ import Select from "./Select";
 import Box from "./Box.js";
 import "./PageWrapper.css";
 
+
 class PageWrapper extends Component {
   constructor(props) {
     super(props);
@@ -53,7 +54,7 @@ class PageWrapper extends Component {
       );
     } else if (this.state.view === 2) {
       return (
-        <Board player1={this.state.player1} player2={this.state.player2} />
+        <Board player1={this.state.player1} player2={this.state.player2}  />
       );
     }
   }
