@@ -6,7 +6,7 @@ const three = 3;
 const counter = 0;
 
 // game logic
-class game {
+class Game {
   constructor() {
     //should build the board
     // we hard coded it, refactor later
@@ -25,7 +25,7 @@ class game {
   changeValue(x, y, who) {
     // who can be 1 or 2
     this.board[x][y] = who;
-    counter++;
+
   }
 
   checkFull(counter) {
@@ -42,7 +42,7 @@ class game {
   // }
 
   checkVertical(x, y) {
-    //moving the y
+    //x is fixed checking only y of that column
     const tile1 = this.board[x][one];
 
     if (
@@ -55,7 +55,7 @@ class game {
   }
 
   checkHorizontal(x, y) {
-    //moving the x
+    //y is fixed checking only x of this line
     const tile1 = this.board[one][y];
     if (
       tile1 === this.board[two][y] &&
@@ -90,33 +90,25 @@ class game {
       return tile1;
     else return 0;
   }
-  // isWinner(result){
-  //   if (result===1){
-  //
-  //   }else if (result===2) {
-  //     //TODO finish this to announce player 1 won the game
-  //   }else{
-  //     //TODO continue the game;
-  //   }
-  // }
+
 
   checkWinner(xCords, yCords, counter) {
     // 0 when still can go , 1 is winner, 2 is winner, 3  is tie
 
     let gameWinner = 0; //no winner as default if this value changes in any of the checks then we have a winner
-    gameWinner = checkVertical(xCords, yCords);
+    gameWinner = this.checkVertical(xCords, yCords);
     if (gameWinner > 0) {
       return gameWinner;
     }
-    gameWinner = checkHorizontal(xCords, yCords);
+    gameWinner = this.checkHorizontal(xCords, yCords);
     if (gameWinner > 0) {
       return gameWinner;
     }
-    gameWinner = checkDiagnolLeft(xCords, yCords);
+    gameWinner = this.checkDiagnolLeft(xCords, yCords);
     if (gameWinner > 0) {
       return gameWinner;
     }
-    gameWinner = checkDiagonalRight(xCords, yCords);
+    gameWinner = this.checkDiagonalRight(xCords, yCords);
     if (gameWinner > 0) {
       return gameWinner;
     }
@@ -128,3 +120,7 @@ class game {
     return 0;
   }
 }
+
+
+
+export default Game;
