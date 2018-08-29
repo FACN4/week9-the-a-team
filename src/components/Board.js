@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./Board.css";
 import Square from "./Square";
-import Button from "./Button";
+//import Button from "./Button";
 
 const one = 1;
 const two = 2;
@@ -25,6 +25,7 @@ class Board extends Component {
     this.state = { player: 1, counter: 0, winner: 0, freezeBoard: false };
   }
 
+
   handleSClick=()=>{
    console.log("fddfdf");
   }
@@ -45,6 +46,16 @@ class Board extends Component {
   };
 
   //// logic ///
+  handleResetClick=()=>{
+    this.board = [
+      [9, 9, 9, 9, 9],
+      [9, 0, 0, 0, 9],
+      [9, 0, 0, 0, 9],
+      [9, 0, 0, 0, 9],
+      [9, 9, 9, 9, 9]
+    ];
+    this.setState({ player: 1, counter: 0, winner: 0, freezeBoard: false });
+  }
   changeValue(x, y, who) {
     // who can be 1 or 2
     this.board[x][y] = who;
@@ -143,14 +154,16 @@ class Board extends Component {
     return 0;
   }
   render() {
-    console.log(this.props);
-    console.log(this.props.player2);
+    
     return (
       <div>
         <div className="board">{this.buildGrid()}</div>
         <div>
           <h2>{this.state.winner} won!</h2>
-          <Button>Play Again</Button>
+
+          <button className="button" onClick={  this.handleResetClick}>
+                       Play Again !
+          </button>
         </div>
       </div>
     );
