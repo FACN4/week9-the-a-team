@@ -78,7 +78,7 @@ class Board extends Component {
 
     if (winner === this.props.player1 || winner === this.props.player2) {
 
-      this.setState({ winner: true, freezeBoard: true });
+      this.setState({ winner: winner, freezeBoard: true });
     } else if (winner === 3) {
       // if this is a tie board becomes unclickable with no winner
       this.setState({ winner: false, freezeBoard: true });

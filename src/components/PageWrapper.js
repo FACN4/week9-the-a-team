@@ -14,8 +14,8 @@ class PageWrapper extends Component {
     this.nextView = this.nextView.bind(this);
     this.state = {
       view: 1,
-      player1: "Matt",
-      player2: "Ryan"
+      player1: "",
+      player2: ""
     };
   }
   player1handler(value) {
