@@ -31,9 +31,11 @@ class Board extends Component {
     this.playerMove(xCords, yCords);
   };
   buildGrid = () => {
-    console.log(this.handleClick);
-    return [1, 2, 3].map(x =>
-      [1, 2, 3].map(y => {
+
+
+    return [1, 2, 3].map(y =>
+      [1, 2, 3].map(x => {
+
         //store in board logic
         let hi = `${x}${y}`;
         return (
@@ -73,7 +75,9 @@ class Board extends Component {
     let newCounter = this.state.counter + 1;
     const winner = this.checkWinner(x, y, newCounter);
     // if we have a winner then board becomes unclickable
-    if (winner === this.props.player1 || winner === this.props.player1) {
+
+    if (winner === this.props.player1 || winner === this.props.player2) {
+
       this.setState({ winner: true, freezeBoard: true });
     } else if (winner === 3) {
       // if this is a tie board becomes unclickable with no winner
@@ -87,9 +91,12 @@ class Board extends Component {
   playerMove(x, y) {
     // const [ x, y ] = event.target.dataset.cell.split('_');
     // const cellEmpty = this.board.getCell(x, y) === 0;
+    if(this.board[x][y]===0){
+      console.log("here");
     this.move(x, y, this.state.player, () => {
       this.setState({ player: this.nextPlayer(),counter:this.state.counter+1 });
     });
+  }
   }
 
   handleResetClick = () => {
