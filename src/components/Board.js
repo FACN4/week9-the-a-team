@@ -26,7 +26,6 @@ class Board extends Component {
   }
 
   handleSClick=()=>{
-
    console.log("fddfdf");
   }
   buildGrid = () => {
