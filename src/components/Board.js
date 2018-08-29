@@ -1,14 +1,12 @@
-import React, { Component } from "react";
-import "./Board.css";
-import Square from "./Square";
-import Button from "./Button";
+import React, { Component } from 'react';
+import './Board.css';
+import Square from './Square';
+import Button from './Button';
+import photos from '../player_photos.json';
 
 const one = 1;
 const two = 2;
 const three = 3;
-
-
-
 
 class Board extends Component {
   constructor() {
@@ -25,36 +23,69 @@ class Board extends Component {
     this.state = { player: 1, counter: 0, winner: 0, freezeBoard: false };
   }
 
-  handleSClick=()=>{
-
-   console.log("fddfdf");
-  }
   buildGrid = () => {
+    console.log(this.handleClick);
     return [1, 2, 3].map(y =>
       [1, 2, 3].map(x => {
+        //store in board logic
+        let hi = `${x}${y}`;
+        return (
+          <Square
+            x={x}
+            y={y}
+            state={this.board[x][y]}
+            id={hi}
+            key={hi}
+            player={this.state.player}
+          />
+        );
 
-                 //store in board logic
-       let hi=`${x}${y}`;
-        return (<Square x={x} y={y} state={this.board[x][y]} id={hi}  onClick={this.handleSClick}/>);
-
-
-                 // add event onclick to run the logic
-                //  and pass to the child the event to change the img
-
+        // add event onclick to run the logic
+        //  and pass to the child the event to change the img
       })
     );
   };
 
   //// logic ///
+
+  // get next player turn
+  nextPlayer() {
+    return this.state.player === 1 ? 2 : 1;
+  }
+
+  // Place a move on the board and check for a winner.
+  move(x, y, player, callback) {
+    this.board.changeValue(x, y, player);
+    let newCounter = this.state.counter + 1;
+    const winner = this.board.checkWinner(x, y, newCounter);
+    // if we have a winner then board becomes unclickable
+    if (winner === 1 || winner === 2) {
+      this.setState({ winner: true, freezeBoard: true });
+    } else if (winner === 3) {
+      // if this is a tie board becomes unclickable with no winner
+      this.setState({ winner: false, freezeBoard: true });
+    } else {
+      callback();
+    }
+  }
+
+  // Handle a player's move, and switch to the next player.
+  playerMove(event, x, y) {
+    // const [ x, y ] = event.target.dataset.cell.split('_');
+    // const cellEmpty = this.board.getCell(x, y) === 0;
+    this.move(x, y, this.state.player, () => {
+      this.setState({ player: this.nextPlayer() });
+    });
+  }
+
   changeValue(x, y, who) {
     // who can be 1 or 2
     this.board[x][y] = who;
-
   }
 
   checkFull(counter) {
-    if (counter > 8) return "full";
-    return "notFull";
+    if (counter > 8) return 'full';
+    return 'notFull';
   }
   ///////// Check functions ///////////////
 
@@ -115,7 +146,6 @@ class Board extends Component {
     else return 0;
   }
 
-
   checkWinner(xCords, yCords, counter) {
     // 0 when still can go , 1 is winner, 2 is winner, 3  is tie
 
@@ -144,8 +174,7 @@ class Board extends Component {
     return 0;
   }
   render() {
-    console.log(this.props);
-    console.log(this.props.player2);
+    console.log('we are at top of the Board render');
     return (
       <div>
         <div className="board">{this.buildGrid()}</div>
