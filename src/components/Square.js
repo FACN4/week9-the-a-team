@@ -9,8 +9,7 @@ class Square extends Component {
     image: 'https://www.colorhexa.com/d3d3d3.png'
   };
   onClick() {
-    console.log('this is inside square onClick');
-    console.log(this.props.player);
+
 
     //this.setState(image:{this.props.photo})
   }
