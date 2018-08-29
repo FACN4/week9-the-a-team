@@ -1,18 +1,15 @@
-import React, { Component } from "react";
-import "./Board.css";
-import Square from "./Square";
-import Button from "./Button";
+"use strict";
 
 const one = 1;
 const two = 2;
 const three = 3;
+const counter = 0;
 
-
-
-
-class Board extends Component {
+// game logic
+class Game {
   constructor() {
-    super();
+    //should build the board
+    // we hard coded it, refactor later
     this.board = [
       [9, 9, 9, 9, 9],
       [9, 0, 0, 0, 9],
@@ -22,27 +19,7 @@ class Board extends Component {
     ]; /// 999 is the border
     /// 111 for X
     /// 222 for O
-    this.state = { player: 1, counter: 0, winner: 0, freezeBoard: false };
   }
-
-  handleSClick=()=>{
-   console.log("fddfdf");
-  }
-  buildGrid = () => {
-    return [1, 2, 3].map(y =>
-      [1, 2, 3].map(x => {
-
-                 //store in board logic
-       let hi=`${x}${y}`;
-        return (<Square x={x} y={y} state={this.board[x][y]} id={hi}  onClick={this.handleSClick}/>);
-
-
-                 // add event onclick to run the logic
-                //  and pass to the child the event to change the img
-
-      })
-    );
-  };
 
   //// logic ///
   changeValue(x, y, who) {
@@ -142,19 +119,8 @@ class Board extends Component {
     // if we get here then all checks returned zero and the counter is less than 9 (board not full) then return 0
     return 0;
   }
-  render() {
-    console.log(this.props);
-    console.log(this.props.player2);
-    return (
-      <div>
-        <div className="board">{this.buildGrid()}</div>
-        <div>
-          <h2>{this.state.winner} won!</h2>
-          <Button>Play Again</Button>
-        </div>
-      </div>
-    );
-  }
 }
 
-export default Board;
+
+
+export default Game;

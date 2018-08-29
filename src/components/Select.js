@@ -9,8 +9,10 @@ class Select extends Component {
   }
   buildSelect = () => {
 
+
     let names=Object.keys(photos[0]);
     return names.map(y => <option value={y}>{y}</option>);
+
   };
   handleChange(event) {
     this.setState({ value: event.target.value });
