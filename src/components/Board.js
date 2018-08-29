@@ -8,7 +8,7 @@ const two = 2;
 const three = 3;
 
 class Board extends Component {
-  constructor() {
+  constructor(props) {
     super();
     this.board = [
       [9, 9, 9, 9, 9],
@@ -59,7 +59,7 @@ class Board extends Component {
 
   // get next player turn
   nextPlayer() {
-    return  this.state.player === 1 ? 2 : 1;
+    return  this.state.player === this.props.player1 ? this.props.player2 : this.props.player1;
     // this.setState({ player: this.state.player === 1 ? 2 : 1 });
   }
 
