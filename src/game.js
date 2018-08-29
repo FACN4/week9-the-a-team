@@ -1,9 +1,12 @@
+"use strict";
+
 const one = 1;
 const two = 2;
 const three = 3;
+const counter = 0;
 
 // game logic
-class game {
+class Game {
   constructor() {
     //should build the board
     // we hard coded it, refactor later
@@ -22,12 +25,12 @@ class game {
   changeValue(x, y, who) {
     // who can be 1 or 2
     this.board[x][y] = who;
-    
+
   }
 
   checkFull(counter) {
-    if (counter > 8) return 'full';
-    return 'notFull';
+    if (counter > 8) return "full";
+    return "notFull";
   }
   ///////// Check functions ///////////////
 
@@ -93,19 +96,19 @@ class game {
     // 0 when still can go , 1 is winner, 2 is winner, 3  is tie
 
     let gameWinner = 0; //no winner as default if this value changes in any of the checks then we have a winner
-    gameWinner = checkVertical(xCords, yCords);
+    gameWinner = this.checkVertical(xCords, yCords);
     if (gameWinner > 0) {
       return gameWinner;
     }
-    gameWinner = checkHorizontal(xCords, yCords);
+    gameWinner = this.checkHorizontal(xCords, yCords);
     if (gameWinner > 0) {
       return gameWinner;
     }
-    gameWinner = checkDiagnolLeft(xCords, yCords);
+    gameWinner = this.checkDiagnolLeft(xCords, yCords);
     if (gameWinner > 0) {
       return gameWinner;
     }
-    gameWinner = checkDiagonalRight(xCords, yCords);
+    gameWinner = this.checkDiagonalRight(xCords, yCords);
     if (gameWinner > 0) {
       return gameWinner;
     }
@@ -120,4 +123,4 @@ class game {
 
 
 
-export default Board;
+export default Game;

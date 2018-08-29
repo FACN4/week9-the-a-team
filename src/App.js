@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Header from './components/Header';
+import PageWrapper from './components/PageWrapper.js';
 import Game from './game';
 
 class App extends Component {
   //react class
   constructor() {
+    super();
     this.board = new Game();
     this.state = { player: 1, counter: 0, winner: false, freezeBoard: false };
   }
@@ -30,34 +33,19 @@ class App extends Component {
     }
   }
 
-
   // Handle a player's move, and switch to the next player.
- playerMove(event) {
-   // const [ x, y ] = event.target.dataset.cell.split('_');
-   // const cellEmpty = this.board.getCell(x, y) === 0;
-
-   if (cellEmpty) {
-     this.move(x, y, this.state.player, () => {
-       if (this.props.singlePlayer) {
-         this.setState({player: this.nextPlayer(), freezeBoard: true}, this.aiMove);
-       } else {
-         this.setState({player: this.nextPlayer()});
-       }
-     });
-   }
- }
-
+  playerMove(event,x,y) {
+    // const [ x, y ] = event.target.dataset.cell.split('_');
+    // const cellEmpty = this.board.getCell(x, y) === 0;
+    this.move(x, y, this.state.player, () => {
+      this.setState({ player: this.nextPlayer() });
+    });
+  }
   render() {
-    // className use App.css classes
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React!</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <Header />
+        <PageWrapper />
       </div>
     );
   }
