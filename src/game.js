@@ -22,7 +22,7 @@ class game {
   changeValue(x, y, who) {
     // who can be 1 or 2
     this.board[x][y] = who;
-    counter++;
+    
   }
 
   checkFull(counter) {
@@ -39,7 +39,7 @@ class game {
   // }
 
   checkVertical(x, y) {
-    //moving the y
+    //x is fixed checking only y of that column
     const tile1 = this.board[x][one];
 
     if (
@@ -52,7 +52,7 @@ class game {
   }
 
   checkHorizontal(x, y) {
-    //moving the x
+    //y is fixed checking only x of this line
     const tile1 = this.board[one][y];
     if (
       tile1 === this.board[two][y] &&
@@ -87,15 +87,7 @@ class game {
       return tile1;
     else return 0;
   }
-  // isWinner(result){
-  //   if (result===1){
-  //
-  //   }else if (result===2) {
-  //     //TODO finish this to announce player 1 won the game
-  //   }else{
-  //     //TODO continue the game;
-  //   }
-  // }
+
 
   checkWinner(xCords, yCords, counter) {
     // 0 when still can go , 1 is winner, 2 is winner, 3  is tie
@@ -125,3 +117,7 @@ class game {
     return 0;
   }
 }
+
+
+
+export default Board;
