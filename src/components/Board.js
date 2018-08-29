@@ -101,6 +101,9 @@ class Board extends Component {
       });
     }
   }
+  handleNewGame = () => {
+    window.location.reload();
+  };
   handleResetClick = () => {
     this.board = [
       [9, 9, 9, 9, 9],
@@ -211,13 +214,28 @@ class Board extends Component {
     return 0;
   }
   render() {
-    console.log("we are at top of the Board render");
-    return (
-      <div onclick={this.handleClick}>
-        <Box>{this.state.player}s Turn</Box>
-        <div className="board">{this.buildGrid()}</div>
-      </div>
-    );
+    if (!this.state.freezeBoard) {
+      return (
+        <div onclick={this.handleClick}>
+          <Box>{this.state.player}'s Turn</Box>
+          <div className="board">{this.buildGrid()}</div>
+        </div>
+      );
+    } else {
+      return (
+        <div>
+          <Box>{this.state.winner} won!</Box>
+          <button className="button" onClick={this.handleResetClick}>
+            Play Again with same players!
+          </button>
+          <br />
+          <br />
+          <button className="button" onClick={this.handleNewGame}>
+            Play Again with new players!
+          </button>
+        </div>
+      );
+    }
   }
 }
 

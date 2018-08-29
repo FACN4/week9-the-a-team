@@ -3,23 +3,30 @@
   margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-gap: 10px;
+  grid-gap: 5px;
   grid-auto-rows: minmax(100px, auto);
 }
 
 .square {
   /* style the square */
   /* display: inline-block; */
-  width: 200px;
+  width: 130px;
   justify-self: center;
-  height: 200px;
+  height: auto;
+}
+
+.vs {
+  padding-top: 30px;
+}
+
+select {
+  margin-bottom: 30px;
 }
 
 .square img {
-  border-radius: 50%;
-  width: 150px;
-  height: 150px;
-  animation: App-logo-spin infinite 1s linear;
+  border-radius: 30%;
+  width: 115px;
+  height: 115px;
 }
 
 @keyframes App-logo-spin {
@@ -28,5 +35,49 @@
   }
   to {
     transform: rotate(360deg);
+  }
+}
+
+@media only screen and (min-width: 760px) {
+  .square {
+    /* style the square */
+    /* display: inline-block; */
+    width: 180px;
+    justify-self: center;
+    height: 180px;
+  }
+
+  .square img {
+    border-radius: 50%;
+    width: 140px;
+    height: 140px;
+    animation: App-logo-spin infinite 10s linear;
+  }
+}
+
+/*
+============================
+    THIS IS DESKTOP!!!!!!
+============================
+*/
+
+@media only screen and (min-width: 901px) {
+  .square {
+    /* style the square */
+    /* display: inline-block; */
+    width: 200px;
+    justify-self: center;
+    height: 200px;
+  }
+
+  .vs {
+    padding-top: 60px;
+  }
+
+  .square img {
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    animation: App-logo-spin infinite 10s linear;
   }
 }

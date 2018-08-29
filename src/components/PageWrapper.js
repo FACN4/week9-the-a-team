@@ -43,7 +43,7 @@ class PageWrapper extends Component {
           <Box>{this.state.instruction}</Box>
           <section id="player_select">
             <Select action={this.player1handler} id="Player 1" />
-            Vs.
+            <div className="vs">Vs.</div>
             <Select action={this.player2handler} id="Player 2" />
           </section>
           <button className="button" onClick={this.nextView}>
@@ -55,13 +55,6 @@ class PageWrapper extends Component {
       return (
         <Board player1={this.state.player1} player2={this.state.player2} />
       );
-    } else {
-      <div>
-        <h2>{this.state.winner} won!</h2>
-        <button className="button" onClick={this.handleResetClick}>
-          Play Again !
-        </button>
-      </div>;
     }
   }
 }

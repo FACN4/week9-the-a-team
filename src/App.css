@@ -1,12 +1,12 @@
 .App {
   text-align: center;
-  width: 50%;
   margin: 10px auto;
   background: #fafafa;
   box-shadow: #d3d3d3 3px 3px;
   border-top: 1px solid #d3d3d3;
   border-left: 1px solid #d3d3d3;
   padding: 0px 10px 40px 10px;
+  width: 90%;
 }
 
 .App-logo {
@@ -36,7 +36,7 @@
   color: black;
   text-decoration: none;
   text-transform: uppercase;
-  font-size: 80px;
+  font-size: 40px;
   font-weight: 360;
   letter-spacing: -3px;
   line-height: 1;
@@ -45,6 +45,7 @@
 
 h2 {
   text-align: center;
+  font-size: 18px;
 }
 .logo-top {
   text-shadow: -2px -1px 0 black, -2px 1px 0 #d3d3d3, 1px 2px 0 #d3d3d3;
@@ -58,5 +59,32 @@ h2 {
   }
   to {
     transform: rotate(360deg);
+  }
+}
+
+/*
+============================
+    THIS IS TABLET!!!!!!
+============================
+*/
+
+@media only screen and (min-width: 760px) {
+  .App {
+    width: 80%;
+  }
+  #logo {
+    font-size: 80px;
+  }
+}
+
+/*
+============================
+    THIS IS DESKTOP!!!!!!
+============================
+*/
+
+@media only screen and (min-width: 901px) {
+  .App {
+    width: 50%;
   }
 }
