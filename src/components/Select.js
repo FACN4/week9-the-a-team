@@ -8,7 +8,7 @@ class Select extends Component {
     this.handleChange = this.handleChange.bind(this);
   }
   buildSelect = () => {
-    return photos.map(y => <option value={y.name}>{y.name}</option>);
+    return Object.keys(photos).map(y => <option value={y}>{y}</option>);
   };
   handleChange(event) {
     this.setState({ value: event.target.value });
