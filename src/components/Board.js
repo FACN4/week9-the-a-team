@@ -1,7 +1,8 @@
-import React, { Component } from "react";
-import "./Board.css";
-import Square from "./Square";
+import React, { Component } from 'react';
+import './Board.css';
+import Square from './Square';
 import Box from "./Box.js";
+
 
 const one = 1;
 const two = 2;
@@ -37,6 +38,7 @@ class Board extends Component {
   buildGrid = () => {
     return [1, 2, 3].map(y =>
       [1, 2, 3].map(x => {
+
         //store in board logic
         let hi = `${x}${y}`;
         return (
@@ -131,7 +133,6 @@ class Board extends Component {
     return "notFull";
   }
   ///////// Check functions ///////////////
-
   checkVertical(x, y) {
     //x is fixed checking only y of that column
     const tile1 = this.board[x][one];
