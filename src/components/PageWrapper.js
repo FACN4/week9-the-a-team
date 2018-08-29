@@ -32,7 +32,7 @@ class PageWrapper extends Component {
     this.setState({ view: 2 });
   }
   render() {
-    console.log(this.state.view);
+    console.log("this is the state view: "+this.state.view);
 
     if (this.state.view === 1) {
       return (
