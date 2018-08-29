@@ -32,7 +32,6 @@ class Board extends Component {
   };
   buildGrid = () => {
 
-
     return [1, 2, 3].map(y =>
       [1, 2, 3].map(x => {
 
@@ -108,6 +107,7 @@ class Board extends Component {
       [9, 9, 9, 9, 9]
     ];
     this.setState({ player: this.props.player1, counter: 0, winner: 0, freezeBoard: false });
+
   };
 
   changeValue(x, y, who) {
