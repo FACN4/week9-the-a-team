@@ -10,7 +10,7 @@ class Select extends Component {
   buildSelect = () => {
 
 
-    let names=Object.keys(photos[0]);
+    let names=Object.keys(photos);
     return names.map(y => <option value={y}>{y}</option>);
 
   };

@@ -20,7 +20,7 @@
   border-radius: 50%;
   width: 100px;
   height: 100px;
-    animation: App-logo-spin infinite 20s linear;
+    animation: App-logo-spin infinite 1s linear;
 }
 
 @keyframes App-logo-spin {

@@ -5,6 +5,7 @@ import Box from "./Box.js";
 import Button from "./Button";
 import "./PageWrapper.css";
 
+
 class PageWrapper extends Component {
   constructor(props) {
     super(props);
@@ -14,7 +15,7 @@ class PageWrapper extends Component {
     this.state = {
       view: 1,
       player1: "Matt",
-      player2: "Ryan"
+      player2: "Matt"
     };
   }
   player1handler(value) {
@@ -37,11 +38,11 @@ class PageWrapper extends Component {
     if (this.state.view === 1) {
       return (
         <div>
-          <Box />
+          <Box>Choose your name!!</Box>
           <section id="player_select">
-            <Select action={this.player1handler} id="Player 1" value="Matt" />
+            <Select action={this.player1handler} id="Player 1"  />
             Vs.
-            <Select action={this.player2handler} id="Player 2" value="Ryan" />
+            <Select action={this.player2handler} id="Player 2"  />
           </section>
           <button className="button" onClick={this.nextView}>
             Submit
@@ -50,7 +51,7 @@ class PageWrapper extends Component {
       );
     } else {
       return (
-        <Board player1={this.state.player1} player2={this.state.player2} />
+        <Board player1={this.state.player1} player2={this.state.player2}  />
       );
     }
   }
