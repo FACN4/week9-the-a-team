@@ -1,6 +1,6 @@
-import React, { Component } from "react";
-import "./Board.css";
-import Square from "./Square";
+import React, { Component } from 'react';
+import './Board.css';
+import Square from './Square';
 //import Button from "./Button";
 
 const one = 1;
@@ -20,8 +20,14 @@ class Board extends Component {
     /// 111 for X
     /// 222 for O
     this.state = { player: 1, counter: 0, winner: 0, freezeBoard: false };
-  }
 
+  }
+  squareHandler = (xCords, yCords) => {
+    //TODO regarding the logic board but not updating the square
+    //assign the board
+
+    this.playerMove(xCords, yCords);
+  };
   buildGrid = () => {
     console.log(this.handleClick);
     return [1, 2, 3].map(y =>
@@ -29,15 +35,19 @@ class Board extends Component {
         //store in board logic
         let hi = `${x}${y}`;
         return (
-          <Square
-            x={x}
-            y={y}
-            state={this.board[x][y]}
-            id={hi}
-            key={hi}
-            player={this.state.player}
-          />
+          <div onClick={()=>this.squareHandler( x , y)}>
+            <Square
+              x={x}
+              y={y}
+              state={this.board[x][y]}
+              id={hi}
+              key={hi}
+              player={this.state.player}
+            />
+          </div>
         );
+        // this.state.player === 1 ? 2 : 1;
+        // this.setState({ player: this.nextPlayer() });
 
         // add event onclick to run the logic
         //  and pass to the child the event to change the img
@@ -47,53 +57,51 @@ class Board extends Component {
 
   //// logic ///
 
+  // get next player turn
+  nextPlayer() {
+    return  this.state.player === 1 ? 2 : 1;
+    // this.setState({ player: this.state.player === 1 ? 2 : 1 });
+  }
 
-
-    // get next player turn
-    nextPlayer() {
-      return this.state.player === 1 ? 2 : 1;
+  // Place a move on the board and check for a winner.
+  move(x, y, player, callback) {
+    this.changeValue(x, y, player);
+    let newCounter = this.state.counter + 1;
+    const winner = this.checkWinner(x, y, newCounter);
+    // if we have a winner then board becomes unclickable
+    if (winner === 1 || winner === 2) {
+      this.setState({ winner: true, freezeBoard: true });
+    } else if (winner === 3) {
+      // if this is a tie board becomes unclickable with no winner
+      this.setState({ winner: false, freezeBoard: true });
+    } else {
+      callback();
     }
+  }
 
-    // Place a move on the board and check for a winner.
-    move(x, y, player, callback) {
-      this.board.changeValue(x, y, player);
-      let newCounter = this.state.counter + 1;
-      const winner = this.board.checkWinner(x, y, newCounter);
-      // if we have a winner then board becomes unclickable
-      if (winner === 1 || winner === 2) {
-        this.setState({ winner: true, freezeBoard: true });
-      } else if (winner === 3) {
-        // if this is a tie board becomes unclickable with no winner
-        this.setState({ winner: false, freezeBoard: true });
-      } else {
-        callback();
-      }
-    }
+  // Handle a player's move, and switch to the next player.
+  playerMove(x, y) {
+    // const [ x, y ] = event.target.dataset.cell.split('_');
+    // const cellEmpty = this.board.getCell(x, y) === 0;
+    this.move(x, y, this.state.player, () => {
+      this.setState({ player: this.nextPlayer() });
+    });
+  }
 
-    // Handle a player's move, and switch to the next player.
-    playerMove(event, x, y) {
-      // const [ x, y ] = event.target.dataset.cell.split('_');
-      // const cellEmpty = this.board.getCell(x, y) === 0;
-      this.move(x, y, this.state.player, () => {
-        this.setState({ player: this.nextPlayer() });
-      });
-    }
-
-
-    handleResetClick=()=>{
-      this.board = [
-        [9, 9, 9, 9, 9],
-        [9, 0, 0, 0, 9],
-        [9, 0, 0, 0, 9],
-        [9, 0, 0, 0, 9],
-        [9, 9, 9, 9, 9]
-      ];
-      this.setState({ player: 1, counter: 0, winner: 0, freezeBoard: false });
-    }
-
+  handleResetClick = () => {
+    this.board = [
+      [9, 9, 9, 9, 9],
+      [9, 0, 0, 0, 9],
+      [9, 0, 0, 0, 9],
+      [9, 0, 0, 0, 9],
+      [9, 9, 9, 9, 9]
+    ];
+    this.setState({ player: 1, counter: 0, winner: 0, freezeBoard: false });
+  };
 
   changeValue(x, y, who) {
     // who can be 1 or 2
+
     this.board[x][y] = who;
   }
 
@@ -195,8 +203,8 @@ class Board extends Component {
         <div>
           <h2>{this.state.winner} won!</h2>
 
-          <button className="button" onClick={  this.handleResetClick}>
-                       Play Again !
+          <button className="button" onClick={this.handleResetClick}>
+            Play Again !
           </button>
         </div>
       </div>
