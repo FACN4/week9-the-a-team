@@ -13,7 +13,9 @@ class PageWrapper extends Component {
     this.state = {
       view: 1,
       player1: "Matt",
-      player2: "Matt"
+      player2: "Matt",
+      instruction:
+        "Welcome to Tic Fac Toe. FAC's #1 Noughts and Crosses app. Tell us who is playing to begin."
     };
   }
   player1handler(value) {
@@ -28,15 +30,17 @@ class PageWrapper extends Component {
   }
   handleSubmit() {}
   nextView() {
-    this.setState({ view: 2 });
+    if (this.state.player1 === this.state.player2) {
+      this.setState({ instruction: "Please choose 2 different players" });
+    } else {
+      this.setState({ view: 2 });
+    }
   }
   render() {
-    console.log("this is the state view: " + this.state.view);
-
     if (this.state.view === 1) {
       return (
         <div>
-          <Box>Choose your name!!</Box>
+          <Box>{this.state.instruction}</Box>
           <section id="player_select">
             <Select action={this.player1handler} id="Player 1" />
             Vs.

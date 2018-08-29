@@ -1,5 +1,12 @@
 .App {
   text-align: center;
+  width: 50%;
+  margin: 10px auto;
+  background: #fafafa;
+  box-shadow: #d3d3d3 3px 3px;
+  border-top: 1px solid #d3d3d3;
+  border-left: 1px solid #d3d3d3;
+  padding: 0px 10px 40px 10px;
 }
 
 .App-logo {
@@ -40,9 +47,8 @@ h2 {
   text-align: center;
 }
 .logo-top {
-  text-shadow: -2px -1px 0 black, 1px -2px 0 blue, -2px 1px 0 black,
-    1px 2px 0 black;
-  padding: 50px 0px 30px 0px;
+  text-shadow: -2px -1px 0 black, -2px 1px 0 #d3d3d3, 1px 2px 0 #d3d3d3;
+  padding: 20px 0px 10px 0px;
 }
 
 /* end for the game*/

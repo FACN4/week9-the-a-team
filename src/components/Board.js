@@ -3,8 +3,6 @@ import "./Board.css";
 import Square from "./Square";
 import Box from "./Box.js";
 
-//import Button from "./Button";
-
 const one = 1;
 const two = 2;
 const three = 3;
