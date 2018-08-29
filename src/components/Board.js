@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import "./Board.css";
 import Square from "./Square";
-
+import Button from "./Button";
 const one = 1;
 const two = 2;
 const three = 3;
 
-import Button from "./Button";
+
 
 
 class Board extends Component {
@@ -25,7 +25,6 @@ class Board extends Component {
   }
 
   handleSClick=()=>{
-
    console.log("fddfdf");
   }
   buildGrid = () => {
