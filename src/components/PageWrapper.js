@@ -10,38 +10,49 @@ class PageWrapper extends Component {
     super(props);
     this.player1handler = this.player1handler.bind(this);
     this.player2handler = this.player2handler.bind(this);
+    this.nextView = this.nextView.bind(this);
     this.state = {
+      view: 1,
       player1: "Matt",
       player2: "Ryan"
     };
   }
   player1handler(value) {
-    this.setState = {
+    this.setState({
       player1: value
-    };
+    });
   }
   player2handler(value) {
-    this.setState(
-      {
-        player2: value
-      },
-      () => console.log("Player 2:", this.state.player2)
-    );
+    this.setState({
+      player2: value
+    });
   }
-  componentDidMount() {}
+  handleSubmit() {}
+  nextView() {
+    this.setState({ view: 2 });
+  }
   render() {
-    return (
-      <div>
-        <Box />
-        <section id="player_select">
-          <Select action={this.player1handler} id="Player 1" value="Matt" />
-          Vs.
-          <Select action={this.player2handler} id="Player 2" value="Ryan" />
-        </section>
-        <Button>Submit</Button>
-        <Board />
-      </div>
-    );
+    console.log(this.state.view);
+
+    if (this.state.view === 1) {
+      return (
+        <div>
+          <Box />
+          <section id="player_select">
+            <Select action={this.player1handler} id="Player 1" value="Matt" />
+            Vs.
+            <Select action={this.player2handler} id="Player 2" value="Ryan" />
+          </section>
+          <button className="button" onClick={this.nextView}>
+            Submit
+          </button>
+        </div>
+      );
+    } else {
+      return (
+        <Board player1={this.state.player1} player2={this.state.player2} />
+      );
+    }
   }
 }
 

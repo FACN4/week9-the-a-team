@@ -143,6 +143,8 @@ class Board extends Component {
     return 0;
   }
   render() {
+    console.log(this.props);
+    console.log(this.props.player2);
     return (
       <div>
         <div className="board">{this.buildGrid()}</div>
