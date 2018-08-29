@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './Board.css';
 import Square from './Square';
+import Box from "./Box.js";
 
 //import Button from "./Button";
 
@@ -20,7 +21,7 @@ class Board extends Component {
     ]; /// 999 is the border
     /// 111 for X
     /// 222 for O
-    this.state = { player: this.props.player1, counter: 1, winner: 0, freezeBoard: false };
+    this.state = { player: this.props.player1, counter: 0, winner: 0, freezeBoard: false };
   }
 
   squareHandler = (xCords, yCords) => {
@@ -81,7 +82,7 @@ class Board extends Component {
       this.setState({ winner: winner, freezeBoard: true });
     } else if (winner === 3) {
       // if this is a tie board becomes unclickable with no winner
-      this.setState({ winner: false, freezeBoard: true });
+      this.setState({ winner: "No One", freezeBoard: true });
     } else {
       callback();
     }
@@ -180,18 +181,22 @@ class Board extends Component {
     let gameWinner = 0; //no winner as default if this value changes in any of the checks then we have a winner
     gameWinner = this.checkVertical(xCords, yCords);
     if (gameWinner !== 0) {
+      console.log("vertical");
       return gameWinner;
     }
     gameWinner = this.checkHorizontal(xCords, yCords);
     if (gameWinner !== 0) {
+      console.log("horizonal");
       return gameWinner;
     }
     gameWinner = this.checkDiagnolLeft(xCords, yCords);
     if (gameWinner !== 0) {
+      console.log("diagonalLeft");
       return gameWinner;
     }
     gameWinner = this.checkDiagonalRight(xCords, yCords);
     if (gameWinner !== 0) {
+      console.log("diagonalRight");
       return gameWinner;
     }
     //if all check are done we need to check if the board is full then we have a tie so we return 3
@@ -205,10 +210,10 @@ class Board extends Component {
     console.log('we are at top of the Board render');
     return (
       <div>
+        <Box>{this.state.player}s Turn</Box>
         <div className="board">{this.buildGrid()}</div>
         <div>
           <h2>{this.state.winner} won!</h2>
-
           <button className="button" onClick={this.handleResetClick}>
             Play Again !
           </button>
