@@ -6,11 +6,8 @@ import "./PageWrapper.css";
 
 
 class PageWrapper extends Component {
-  constructor(props) {
-    super(props);
-    this.player1handler = this.player1handler.bind(this);
-    this.player2handler = this.player2handler.bind(this);
-    this.nextView = this.nextView.bind(this);
+  constructor() {
+    super();
     this.state = {
       view: 1,
       player1: "Matt",
@@ -19,18 +16,18 @@ class PageWrapper extends Component {
         "Welcome to Tic Fac Toe. FAC's #1 Noughts and Crosses web app. Tell us who is playing to begin."
     };
   }
-  player1handler(value) {
+  player1handler=(value)=> {
     this.setState({
       player1: value
     });
   }
-  player2handler(value) {
+  player2handler=(value)=> {
     this.setState({
       player2: value
     });
   }
   handleSubmit() {}
-  nextView() {
+  nextView=()=> {
     if (this.state.player1 === this.state.player2) {
       this.setState({ instruction: "Please choose 2 different players" });
     } else {

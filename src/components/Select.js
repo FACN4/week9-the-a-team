@@ -2,16 +2,15 @@ import React, { Component } from "react";
 import photos from "../player_photos.json";
 
 class Select extends Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = { value: "Matt" };
-    this.handleChange = this.handleChange.bind(this);
   }
   buildSelect = () => {
     let names = Object.keys(photos);
     return names.map(y => <option value={y}>{y}</option>);
   };
-  handleChange(event) {
+  handleChange=(event)=> {
     this.setState({ value: event.target.value });
     this.props.action(event.target.value);
   }

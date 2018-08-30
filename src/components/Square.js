@@ -2,14 +2,13 @@ import React, { Component } from "react";
 import photos from "../player_photos.json";
 
 class Square extends Component {
-  constructor(props) {
-    super(props);
-    this.onClick = this.onClick.bind(this);
+  constructor() {
+    super();
   }
   state = {
     image: "https://www.colorhexa.com/d3d3d3.png"
   };
-  onClick() {
+  onClick=()=> {
     if(this.props.state===0){
     this.props.handleSquaree(this.props.x,this.props.y);
     this.setState({
