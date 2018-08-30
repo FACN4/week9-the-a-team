@@ -23,9 +23,11 @@ class Board extends Component {
       winner: 0,
       freezeBoard: false
     };
+
   }
   squareHandler = (xCords, yCords) => {
     //assign the board
+    console.log("handle");
     this.playerMove(xCords, yCords);
   };
   buildGrid = () => {
@@ -33,9 +35,10 @@ class Board extends Component {
       [1, 2, 3].map(x => {
         let hi = `${x}${y}`;
         return (
-          <div onClick={() => this.squareHandler(x, y)}>
+          <div >
             <Square
               x={x}
+              handleSquaree={this.squareHandler}
               y={y}
               state={this.board[x][y]}
               id={hi}
