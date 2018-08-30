@@ -7,9 +7,9 @@ import PageWrapper from './components/PageWrapper.js';
 
 
 
-class App extends Component {
+// class App extends Component {
   //react class
-
+export const App = props => {
 
   render() {
     return (
