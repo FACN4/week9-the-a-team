@@ -1,8 +1,7 @@
-import React, { Component } from 'react';
-import './Board.css';
-import Square from './Square';
+import React, { Component } from "react";
+import "./Board.css";
+import Square from "./Square";
 import Box from "./Box.js";
-
 
 const one = 1;
 const two = 2;
@@ -32,8 +31,6 @@ class Board extends Component {
   buildGrid = () => {
     return [1, 2, 3].map(y =>
       [1, 2, 3].map(x => {
-
-        //store in board logic
         let hi = `${x}${y}`;
         return (
           <div onClick={() => this.squareHandler(x, y)}>
@@ -196,12 +193,12 @@ class Board extends Component {
         <div>
           <Box>{this.state.winner} won!</Box>
           <button className="button endpage" onClick={this.handleResetClick}>
-            Play Again with same players!
+            Play again with same players
           </button>
           <br />
           <br />
           <button className="button endpage" onClick={this.handleNewGame}>
-            Play Again with new players!
+            Play again with new players
           </button>
         </div>
       );
