@@ -1,16 +1,11 @@
+import React, { Component } from "react";
 
-import React, { Component } from 'react';
-
-import './App.css';
-import Header from './components/Header';
-import PageWrapper from './components/PageWrapper.js';
-
-
+import "./App.css";
+import Header from "./components/Header";
+import PageWrapper from "./components/PageWrapper.js";
 
 class App extends Component {
   //react class
-
-
   render() {
     return (
       <div className="App">
