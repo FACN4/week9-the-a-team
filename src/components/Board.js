@@ -195,8 +195,7 @@ class Board extends Component {
           <button className="button endpage" onClick={this.handleResetClick}>
             Play again with same players
           </button>
-          <br />
-          <br />
+
           <button className="button endpage" onClick={this.handleNewGame}>
             Play again with new players
           </button>
