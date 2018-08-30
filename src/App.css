@@ -44,6 +44,10 @@ h2 {
   padding: 20px 0px 10px 0px;
 }
 
+.endpage {
+  width: 320px;
+}
+
 /* end for the game*/
 @keyframes App-logo-spin {
   from {
@@ -66,10 +70,6 @@ h2 {
   }
   #logo {
     font-size: 80px;
-  }
-
-  .endpage {
-    width: 320px;
   }
 }
 
