@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./Board.css";
 import Square from "./Square";
 import Box from "./Box.js";
+import handleNewGame from "../logicBoard";
 
 const one = 1;
 const two = 2;
@@ -62,7 +63,7 @@ class Board extends Component {
     this.changeValue(x, y, player);
     let newCounter = this.state.counter + 1;
     const winner = this.checkWinner(x, y, newCounter);
-    // if we have a winner then board becomes unclickable
+    // if we have a winnhandleNewGameer then board becomes unclickable
 
     if (winner === this.props.player1 || winner === this.props.player2) {
       this.setState({ winner: winner, freezeBoard: true });
@@ -86,9 +87,7 @@ class Board extends Component {
       });
     }
   }
-  handleNewGame = () => {
-    window.location.reload();
-  };
+  
   handleResetClick = () => {
     this.board = [
       [9, 9, 9, 9, 9],
@@ -199,7 +198,7 @@ class Board extends Component {
             Play again with same players
           </button>
 
-          <button className="button endpage" onClick={this.handleNewGame}>
+          <button className="button endpage" onClick={handleNewGame}>
             Play again with new players
           </button>
         </div>
