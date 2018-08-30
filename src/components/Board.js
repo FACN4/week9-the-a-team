@@ -203,7 +203,7 @@ class Board extends Component {
     if (!this.state.freezeBoard) {
       return (
         <div>
-          <Box>{this.state.player}s Turn</Box>
+          <Box>{this.state.player}'s Turn</Box>
           <div className="board">{this.buildGrid()}</div>
         </div>
       );
