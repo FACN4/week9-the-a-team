@@ -10,6 +10,7 @@ class Square extends Component {
     image: "https://www.colorhexa.com/d3d3d3.png"
   };
   onClick() {
+    if(this.props.state===0)
     this.setState({
       image: photos[this.props.player]["photo"]
     });
