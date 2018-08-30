@@ -9,16 +9,16 @@ import PageWrapper from './components/PageWrapper.js';
 
 // class App extends Component {
   //react class
-export const App = props => {
+export const App = () => {
 
-  render() {
+//  render() {
     return (
       <div className="App">
         <Header />
         <PageWrapper />
       </div>
     );
-  }
+//  }
 }
 
 export default App;
