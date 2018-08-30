@@ -62,7 +62,7 @@ class Board extends Component {
     // if we have a winner then board becomes unclickable
 
     if (winner === this.props.player1 || winner === this.props.player2) {
-      setTimeout(() => this.setState({ winner: winner, freezeBoard: true }), 2);
+      this.setState({ winner: winner, freezeBoard: true });
     } else if (winner === 3) {
       // if this is a tie board becomes unclickable with no winner
       this.setState({ winner: "No one", freezeBoard: true });
@@ -184,26 +184,28 @@ class Board extends Component {
     if (!this.state.freezeBoard) {
       return (
         <div onClick={this.handleClick}>
-          <Box>{this.state.player}'s Turn</Box>
+          <Box>{this.state.player}s Turn</Box>
           <div className="board">{this.buildGrid()}</div>
         </div>
       );
     } else {
       return (
         <div>
-          <Box>{this.state.winner} won!</Box>
-          <button className="button endpage" onClick={this.handleResetClick}>
-            Play again with same players
-          </button>
-          <br />
-          <br />
-          <button className="button endpage" onClick={this.handleNewGame}>
-            Play again with new players
-          </button>
+          <div wait={5000}>
+            <Box>{this.state.winner} won!</Box>
+            <button className="button endpage" onClick={this.handleResetClick}>
+              Play again with same players
+            </button>
+            <button
+              className="button last endpage"
+              onClick={this.handleNewGame}
+            >
+              Play again with new players
+            </button>
+          </div>
         </div>
       );
     }
   }
 }
-
 export default Board;
