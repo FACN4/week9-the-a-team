@@ -1,14 +1,17 @@
 # Tic Fac Toe by the A Team - Ryan, Matt and Mr T.
 
+
 ## Our link: https://tic-fac-toe.netlify.com/
+
+![](https://i.imgur.com/oW45CM7.png)
 
 ## Preparation
 
 ### Wireframe
 
-Live preview: https://www.figma.com/file/VMhodyDAjR7Y5lQPIH1lzmHE/Untitled
+Live Figma Preview: https://www.figma.com/file/VMhodyDAjR7Y5lQPIH1lzmHE/Untitled
 
-![](https://i.imgur.com/7htJzpC.png)
+![](https://i.imgur.com/GUWEpgo.png)
 
 ### Component Hierarchy
 
@@ -18,7 +21,6 @@ Live preview: https://www.figma.com/file/VMhodyDAjR7Y5lQPIH1lzmHE/Untitled
   - Header
   - Page Wrapper
     - Box
-    - Board
       - Select x2 
 
 #### View 2: Game
@@ -36,20 +38,78 @@ Live preview: https://www.figma.com/file/VMhodyDAjR7Y5lQPIH1lzmHE/Untitled
   - Header
   - Page Wrapper
     - Board
+    
+### Interesting Code / Challenges
 
-#### Appendix 1: Figma Screens:
+![](https://media0.giphy.com/media/l4HohVwFLzHKcwa6A/giphy.gif)
 
-Screen 1:
-![](https://i.imgur.com/qzxwd7T.png)
+#### Error handling
 
-Screen 2:
+Error handling is simple, we just updated the text in our 'Box' component with the error message.
 
-![](https://i.imgur.com/M4klQwx.png)
+``` javascript
+nextView() {
+    if (this.state.player1 === this.state.player2) {
+      this.setState({ instruction: "Please choose 2 different players" });
+    } else {
+      this.setState({ view: 2 });
+    }
+  }
+```
 
-Screen 3:
+#### Building our grids
+``` javscript
+  buildGrid = () => {
+    return [1, 2, 3].map(y =>
+      [1, 2, 3].map(x => {
+        let coords = `${x}${y}`;
+        return (
+          <div onClick={() => this.squareHandler(x, y)}>
+            <Square
+              x={x}
+              y={y}
+              state={this.board[x][y]}
+              id={coords}
+              key={coords}
+              player={this.state.player}
+            />
+          </div>
+        );
+      })
+    );
+  };
+  ```
+#### Passing childs state to the parent
 
-![](https://i.imgur.com/inrJyHj.png)
+##### Parent
 
-Screen 4:
+```javascript
+  player1handler(value) {
+    this.setState({
+      player1: value
+    });
+  }
+  player2handler(value) {
+    this.setState({
+      player2: value
+    });
+  }
+```
 
-![](https://i.imgur.com/Npf05eK.png)
+```javascript
+            <Select action={this.player1handler} id="Player 1" />
+            ...
+            <Select action={this.player2handler} id="Player 2" />
+```
+
+
+
+##### Child:
+
+```javascript
+  handleChange(event) {
+    this.setState({ value: event.target.value });
+    this.props.action(event.target.value);
+  }
+```
+
