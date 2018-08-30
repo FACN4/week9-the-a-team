@@ -183,7 +183,7 @@ class Board extends Component {
   render() {
     if (!this.state.freezeBoard) {
       return (
-        <div>
+        <div onClick={this.handleClick}>
           <Box>{this.state.player}'s Turn</Box>
           <div className="board">{this.buildGrid()}</div>
         </div>
