@@ -8,7 +8,7 @@
 }
 
 .square {
-  width: 130px;
+  width: 95px;
   justify-self: center;
   height: auto;
 }
@@ -23,8 +23,8 @@ select {
 
 .square img {
   border-radius: 30%;
-  width: 115px;
-  height: 115px;
+  width: 90px;
+  height: 90px;
 }
 
 @keyframes App-logo-spin {
@@ -59,7 +59,7 @@ select {
 ============================
 */
 
-@media only screen and (min-width: 901px) {
+@media only screen and (min-width: 1200px) {
   .square {
     /* style the square */
     /* display: inline-block; */
