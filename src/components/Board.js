@@ -62,7 +62,7 @@ class Board extends Component {
     // if we have a winner then board becomes unclickable
 
     if (winner === this.props.player1 || winner === this.props.player2) {
-      this.setState({ winner: winner, freezeBoard: true });
+      setTimeout(() => this.setState({ winner: winner, freezeBoard: true }), 2);
     } else if (winner === 3) {
       // if this is a tie board becomes unclickable with no winner
       this.setState({ winner: "No one", freezeBoard: true });
@@ -183,7 +183,7 @@ class Board extends Component {
   render() {
     if (!this.state.freezeBoard) {
       return (
-        <div onClick={this.handleClick}>
+        <div>
           <Box>{this.state.player}'s Turn</Box>
           <div className="board">{this.buildGrid()}</div>
         </div>
