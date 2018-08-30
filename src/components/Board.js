@@ -23,17 +23,24 @@ class Board extends Component {
       winner: 0,
       freezeBoard: false
     };
+
   }
 
-  // buils the gird -- 2 loops that build the squares in the board while assigning the right cords for correct logic
+  squareHandler = (xCords, yCords) => {
+    //assign the board
+    console.log("handle");
+    this.playerMove(xCords, yCords);
+  };
+
   buildGrid = () => {
     return [1, 2, 3].map(y =>
       [1, 2, 3].map(x => {
         let hi = `${x}${y}`;
         return (
-          <div onClick={() => this.squareHandler(x, y)}>
+          <div >
             <Square
               x={x}
+              handleSquaree={this.squareHandler}
               y={y}
               state={this.board[x][y]}
               id={hi}
@@ -196,7 +203,7 @@ class Board extends Component {
   render() {
     if (!this.state.freezeBoard) {
       return (
-        <div onClick={this.handleClick}>
+        <div>
           <Box>{this.state.player}'s Turn</Box>
           <div className="board">{this.buildGrid()}</div>
         </div>
@@ -208,8 +215,7 @@ class Board extends Component {
           <button className="button endpage" onClick={this.handleResetClick}>
             Play again with same players
           </button>
-          <br />
-          <br />
+
           <button className="button endpage" onClick={this.handleNewGame}>
             Play again with new players
           </button>
