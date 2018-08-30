@@ -45,7 +45,14 @@ h2 {
 }
 
 .endpage {
+  margin: 0 auto;
   width: 320px;
+  display: block;
+  margin-top: 25px;
+}
+
+.last {
+  margin-top: 20px;
 }
 
 /* end for the game*/

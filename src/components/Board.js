@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
-import './Board.css';
-import Square from './Square';
-import Box from './Box.js';
+import React, { Component } from "react";
+import "./Board.css";
+import Square from "./Square";
+import Box from "./Box.js";
 
 const one = 1;
 const two = 2;
@@ -23,7 +23,6 @@ class Board extends Component {
       winner: 0,
       freezeBoard: false
     };
-
   }
 
   squareHandler = (xCords, yCords) => {
@@ -37,7 +36,7 @@ class Board extends Component {
       [1, 2, 3].map(x => {
         let hi = `${x}${y}`;
         return (
-          <div >
+          <div>
             <Square
               x={x}
               handleSquaree={this.squareHandler}
@@ -80,7 +79,7 @@ class Board extends Component {
       this.setState({ winner: winner, freezeBoard: true });
     } else if (winner === 3) {
       // if this is a tie board becomes unclickable with no winner
-      this.setState({ winner: 'No one', freezeBoard: true });
+      this.setState({ winner: "No one", freezeBoard: true });
     } else {
       callback();
     }
@@ -176,8 +175,8 @@ class Board extends Component {
 
   // check if board is full
   checkFull(counter) {
-    if (counter > 8) return 'full';
-    return 'notFull';
+    if (counter > 8) return "full";
+    return "notFull";
   }
 
   handleNewGame = () => {
@@ -215,7 +214,6 @@ class Board extends Component {
           <button className="button endpage" onClick={this.handleResetClick}>
             Play again with same players
           </button>
-
           <button className="button endpage" onClick={this.handleNewGame}>
             Play again with new players
           </button>
@@ -224,5 +222,4 @@ class Board extends Component {
     }
   }
 }
-
 export default Board;

@@ -18,8 +18,14 @@ class Select extends Component {
   render() {
     return (
       <div>
-        <h3>{this.props.id}</h3>
-        <select value={this.state.value} onChange={this.handleChange}>
+        <h3>
+          <label for={this.props.id}>{this.props.id}</label>
+        </h3>
+        <select
+          id={this.props.id}
+          value={this.state.value}
+          onChange={this.handleChange}
+        >
           {this.buildSelect()};
         </select>
         <br />
